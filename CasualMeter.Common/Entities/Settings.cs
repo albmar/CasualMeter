@@ -51,7 +51,7 @@ namespace CasualMeter.Common.Entities
         [DefaultValue("(Class) Name               | Received Dmg | RDPS")]
         public string RcvHeader { get; set; }
 
-        [DefaultValue("{ClassAndName,-26} -{DamageReceived,-11} -{RDPS}")]
+        [DefaultValue("{ClassAndName,-26} -{DamageReceived,-11} -{RDPS,-9} †{Death,-3} ({DeathDuration})")]
         public string RcvPasteFormat { get; set; }
 
         [DefaultValue("Heal done/received ({Boss} in {Time}):")]
@@ -87,6 +87,21 @@ namespace CasualMeter.Common.Entities
         [JsonConverter(typeof(LanguageConverter))]
         [DefaultValue("Auto")]
         public string Language { get; set; }
+
+        [DefaultValue(false)]
+        public bool PartyOnly { get; set; }
+
+        [DefaultValue("")]
+        public string TeraDpsUser { get; set; }
+
+        [DefaultValue("")]
+        public string TeraDpsToken { get; set; }
+
+        [DefaultValue(false)]
+        public bool ExcelExport { get; set; }
+
+        [DefaultValue(false)]
+        public bool SiteExport { get; set; }
 
         //since you can't set DefaultValueAttribute on objects
         private HotKeySettings _hotkeys;
